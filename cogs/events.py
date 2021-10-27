@@ -47,6 +47,10 @@ class Events(commands.Cog):
     async def on_member_join(self, member):
         guild = self.bot.get_guild(894218844070084628)
         channel = discord.utils.get(member.guild.channels, id=894253096216170566)
+        
+        if guild == 894218844070084628:
+            role = discord.utils.get(member.server.roles, id=897770506441359371)
+            await bot.add_roles(member, role)
 
         if channel is not None:
             await channel.send(f'{member.mention}, Welcome to {guild.name}. Enjoy your stay.')
